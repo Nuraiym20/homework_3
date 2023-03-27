@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Button from './Button'
 
-function App() {
+const App = () => {
+  const [active, setActive] = useState(false)
+
+  const handleClick = () => {
+    setActive(!active)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button onClick={handleClick} text='Активировать' />
+      {active && <span>Активна</span>}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
